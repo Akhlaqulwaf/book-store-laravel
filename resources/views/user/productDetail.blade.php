@@ -2,20 +2,21 @@
 <div class="w-full p-7 px-[2rem] md:px-[3rem] font-primary">
     <div class="">
         <div class="border-b border-gray-400">
-            <a href="{{route('user.welcome')}}" class="hover:text-blue-500 hover:underline transition duration-500">Home</a><span>/Product Detail</span>
+            <a
+                href="{{ route('user.welcome') }}"
+                class="hover:text-blue-500 hover:underline transition duration-500"
+                >Home</a
+            ><span>/Product Detail</span>
         </div>
     </div>
     <div
         class="grid grid-cols-1 md:grid-cols-2 gap-[30px] max-w-sm md:max-w-none mx-auto md:mx-0 mt-5"
     >
-                <div
-                    class="max-w-[180px] h-full flex justify-center items-center mx-auto"
-                >
-                    <img
-                        src="{{asset('storage/'. $data->image)}}"
-                        alt=""
-                    />
-                </div>
+        <div
+            class="max-w-[180px] h-full flex justify-center items-center mx-auto"
+        >
+            <img src="{{asset('storage/'. $data->image)}}" alt="" />
+        </div>
         <div class="leading-6 flex flex-col justify-center text-justify">
             <p class="pb-1 font-semibold">{{$data->name}}</p>
             <p class="pb-1">{{$data->category}}</p>
@@ -37,7 +38,9 @@
                         name="product_id"
                         value="{{ $data->id }}"
                     />
-                    <div class="mt-3 w-[11rem] flex justify-center items-center">
+                    <div
+                        class="mt-3 w-[11rem] flex justify-center items-center"
+                    >
                         <button
                             type="button"
                             id="decrease"

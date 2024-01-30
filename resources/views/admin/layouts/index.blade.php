@@ -228,6 +228,8 @@
             </aside>
             <div class="md:ml-[19.3%]">@yield("content")</div>
         </div>
+        @yield("js")
         <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
+        
     </body>
 </html>

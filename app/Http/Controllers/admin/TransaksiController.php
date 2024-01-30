@@ -55,13 +55,13 @@ class TransaksiController extends Controller
         $data = [
             'order' => $order
         ];
-        
+
         return view('admin.transaksi.perluDiCek',$data);
     }
 
     public function konfirmasi(Request $request, $id){
         $order = Order::findOrFail($id);
-        $order->status_order_id = 3;
+        $order->status_order_id = 6;
         $order->save();
 
         $kurangStok = DB::table('detail_order')->where('order_id',$id)->get();
@@ -77,7 +77,7 @@ class TransaksiController extends Controller
 
     public function tolak($id){
         $order = Order::findOrFail($id);
-        
+
         Storage::delete('public/'.$order->bukti_bayar);
         $order->status_order_id = 5;
         $order->bukti_bayar = '';
@@ -98,7 +98,7 @@ class TransaksiController extends Controller
         ];
         return view('admin.transaksi.cancel',$data);
     }
-    
+
     public function done(){
         $orderDone = DB::table('order')
                 ->join('users','users.id','=','order.user_id')
